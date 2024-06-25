@@ -1,6 +1,8 @@
 // MUI Imports
 import Chip from '@mui/material/Chip'
 import { useTheme } from '@mui/material/styles'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import HiveIcon from '@mui/icons-material/Hive'
 
 // Third-party Imports
 import PerfectScrollbar from 'react-perfect-scrollbar'
@@ -57,13 +59,6 @@ const VerticalMenu = ({ scrollMenu }) => {
           icon={<i className='ri-home-smile-line' />}
           suffix={<Chip label='1' size='small' color='error' />}
         >
-          {/* <MenuItem
-            href={`${process.env.NEXT_PUBLIC_PRO_URL}/dashboards/crm`}
-            suffix={<Chip label='Pro' size='small' color='primary' variant='tonal' />}
-            target='_blank'
-          >
-            CRM
-          </MenuItem> */}
           <MenuItem href='/'>Analytics</MenuItem>
         </SubMenu>
         <SubMenu
@@ -71,7 +66,7 @@ const VerticalMenu = ({ scrollMenu }) => {
           icon={<i className='ri-file-copy-line' />}
           suffix={<Chip label='rental' size='small' color='primary' variant='tonal' />}
         >
-          <MenuItem href={`/create-order`}>Make Order</MenuItem>
+          <MenuItem href={`/create-order`}>Create Order</MenuItem>
           <MenuItem href={`/completed-orders`}>Completed Orders</MenuItem>
         </SubMenu>
         <MenuSection label='Management System'>
@@ -80,12 +75,12 @@ const VerticalMenu = ({ scrollMenu }) => {
             icon={<i className='ri-mail-open-line' />}
             suffix={<Chip label='clothes' size='small' color='primary' variant='tonal' />}
           >
-            All Garments
+            All Products
           </MenuItem>
 
           <MenuItem
             href={`add-garments`}
-            icon={<i className='ri-calendar-line' />}
+            icon={<HiveIcon />}
             suffix={<Chip label='+' size='small' color='primary' variant='tonal' />}
           >
             Add garments
@@ -97,14 +92,13 @@ const VerticalMenu = ({ scrollMenu }) => {
           >
             On Rent
           </MenuItem>
-          {/* <MenuItem
-            href={`${process.env.NEXT_PUBLIC_PRO_URL}/apps/kanban`}
-            icon={<i className='ri-drag-drop-line' />}
-            suffix={<Chip label='Pro' size='small' color='primary' variant='tonal' />}
-            target='_blank'
+          <MenuItem
+            href='customers'
+            icon={<AccountCircleIcon />}
+            suffix={<Chip label='-' size='small' color='primary' variant='tonal' />}
           >
-            Returned
-          </MenuItem> */}
+            Customers
+          </MenuItem>
           <MenuItem href='/account-settings' icon={<i className='ri-user-settings-line' />}>
             Account Settings
           </MenuItem>

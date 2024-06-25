@@ -94,57 +94,62 @@ const rowsData = [
 
 const Table = () => {
   return (
-    <Card>
-      <div className='overflow-x-auto'>
-        <table className={tableStyles.table}>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Price</th>
-              <th>For</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rowsData.map((row, index) => (
-              <tr key={index}>
-                <td className='!plb-1'>
-                  <div className='flex items-center gap-3'>
-                    <CustomAvatar src={row.imageSrc} size={34} />
-                    <div className='flex flex-col'>
-                      <Typography color='text.primary' className='font-medium'>
-                        {row.name}
-                      </Typography>
-                      <Typography variant='body2'>{row.sizes}</Typography>
-                    </div>
-                  </div>
-                </td>
-                <td className='!plb-1'>
-                  <Typography>{row.price}</Typography>
-                </td>
-                <td className='!plb-1'>
-                  <div className='flex gap-2'>
-                    <i className={classnames('ri-user-3-line', row.iconClass, 'text-[22px]')} />
-                    <Typography color='text.primary'>{row.role}</Typography>
-                  </div>
-                </td>
-                <td className='!pb-1'>
-                  <Chip
-                    className='capitalize'
-                    variant='tonal'
-                    color={
-                      row.status === 'unavaileble' ? 'warning' : row.status === 'inactive' ? 'secondary' : 'success'
-                    }
-                    label={row.status}
-                    size='small'
-                  />
-                </td>
+    <>
+      <h1 class='my-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl'>
+        Garments Management System
+      </h1>
+      <Card>
+        <div className='overflow-x-auto'>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>For</th>
+                <th>Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </Card>
+            </thead>
+            <tbody>
+              {rowsData.map((row, index) => (
+                <tr key={index}>
+                  <td className='!plb-1'>
+                    <div className='flex items-center gap-3'>
+                      <CustomAvatar src={row.imageSrc} size={34} />
+                      <div className='flex flex-col'>
+                        <Typography color='text.primary' className='font-medium'>
+                          {row.name}
+                        </Typography>
+                        <Typography variant='body2'>{row.sizes}</Typography>
+                      </div>
+                    </div>
+                  </td>
+                  <td className='!plb-1'>
+                    <Typography>{row.price}</Typography>
+                  </td>
+                  <td className='!plb-1'>
+                    <div className='flex gap-2'>
+                      <i className={classnames('ri-user-3-line', row.iconClass, 'text-[22px]')} />
+                      <Typography color='text.primary'>{row.role}</Typography>
+                    </div>
+                  </td>
+                  <td className='!pb-1'>
+                    <Chip
+                      className='capitalize'
+                      variant='tonal'
+                      color={
+                        row.status === 'unavaileble' ? 'warning' : row.status === 'inactive' ? 'secondary' : 'success'
+                      }
+                      label={row.status}
+                      size='small'
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Card>
+    </>
   )
 }
 

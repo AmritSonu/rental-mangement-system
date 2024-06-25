@@ -1,6 +1,7 @@
 // Layout Imports
 import LayoutWrapper from '@layouts/LayoutWrapper'
 import VerticalLayout from '@layouts/VerticalLayout'
+import 'rsuite/dist/rsuite-no-reset.min.css'
 
 // Component Imports
 import Providers from '@components/Providers'

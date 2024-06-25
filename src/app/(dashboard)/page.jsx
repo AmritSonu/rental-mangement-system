@@ -52,9 +52,9 @@ const DashboardAnalytics = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={12}>
+      {/* <Grid item xs={12}>
         <Table />
-      </Grid>
+      </Grid> */}
     </Grid>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 
+import { DateRangePicker } from 'rsuite'
 import Card from '@mui/material/Card'
 import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
@@ -10,6 +11,7 @@ import CardContent from '@mui/material/CardContent'
 import InputAdornment from '@mui/material/InputAdornment'
 
 import Form from '@components/Form'
+import MultipleSelectChip from '@/@core/components/multipleSelectorChip/MultipleSelectorChip'
 
 const FormLayoutsWithIcon = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +21,13 @@ const FormLayoutsWithIcon = () => {
     whatsapp_phone: '',
     address: ''
   })
+
+  const [selectedRange, setSelectedRange] = useState(null)
+
+  const handleDateChange = range => {
+    setSelectedRange(range)
+    console.log('Selected Range:', range)
+  }
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -131,12 +140,26 @@ const FormLayoutsWithIcon = () => {
                 }}
               />
             </Grid>
+            <Grid item xs={12}>
+              <CardHeader title='Select Garments' />
+              <MultipleSelectChip />
+            </Grid>
+            {/* here add this new demand  */}
+            <Grid item xs={12}>
+              <CardHeader title='Select Rantal Date' />
 
-            <CardHeader title='Select Garments' />
+              <DateRangePicker onChange={handleDateChange} />
+              {selectedRange && (
+                <div>
+                  <p>Start Date: {selectedRange[0].toString()}</p>
+                  <p>End Date: {selectedRange[1].toString()}</p>
+                </div>
+              )}
+            </Grid>
 
             <Grid item xs={12}>
               <Button variant='contained' type='submit'>
-                Next Step
+                Create Order
               </Button>
             </Grid>
           </Grid>
